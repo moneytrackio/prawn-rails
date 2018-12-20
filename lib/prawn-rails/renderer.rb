@@ -9,7 +9,7 @@ module PrawnRails
         @filename ||= "\#{controller.action_name}.pdf"
 
         if controller.respond_to?(:response) && !controller.response.nil?
-          controller.response.headers['Content-Disposition'] = "inline; filename=\\\"\#{@filename}\\\""
+          controller.response.headers['Content-Disposition'] = "attachment; filename=\\\"\#{@filename}\\\""
         end
 
         #{template.source.strip}
